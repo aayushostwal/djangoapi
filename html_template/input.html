@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Prediction App</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js">
+    </script>
+</head>
+
+<body>
+<center>
+    <h1 style="color:blue;">
+        Welcome to Image Prediciton App
+    </h1>
+    <h3> Please upload a file or URL to get your Prediction</h3>
+    <div>
+        <select>
+            <option>Select File or URL</option>
+            <option value="url">URL</option>
+            <option value="file">FILE</option>
+        </select>
+    </div>
+    <div>
+        <div class="url GFG"
+             style="padding: 30px;
+                        margin-top: 30px;
+                        width :60%;
+                        background:green">
+            <form method="POST" class="post-form" enctype="multipart/form-data">
+                {{ form_url.as_p }}
+                <input type = "submit" value = "Submit">
+            </form>
+        </div>
+        <div class="file GFG"
+             style="padding: 30px;
+                        margin-top: 30px;
+                        width :60%;
+                        background:green">
+            <form method="POST" class="post-form" enctype="multipart/form-data">
+                {{ form_file.as_p }}
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+            $(document).ready(function() {
+                $("select").on('change', function() {
+                    $(this).find("option:selected").each(function() {
+                        var geeks = $(this).attr("value");
+                        if (geeks) {
+                            $(".GFG").not("." + geeks).hide();
+                            $("." + geeks).show();
+                        } else {
+                            $(".GFG").hide();
+                        }
+                    });
+                }).change();
+            });
+        </script>
+</center>
+</body>
+
+</html>

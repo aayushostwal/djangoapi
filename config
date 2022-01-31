@@ -1,0 +1,6 @@
+[PATHS]
+out_path = out/images
+classes = image_classes.txt
+
+
+
